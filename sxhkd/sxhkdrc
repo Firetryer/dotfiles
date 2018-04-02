@@ -2,28 +2,33 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
-super + Return
-	urxvt -name floating -geometry 64x16
-
-super + shift + Return
-	urxvt -geometry 64x16
-
-# program launcher
-super + @space
-	rofi -show drun -theme sidetab -show-icons
-
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
 # Windows-like alt-tab
 alt + {_,shift +} Tab
-	bspc node -f {next,prev}
+	bspc node -f {next,prev}.local
 
 super + {Up,Down,Left,Right}
-	bspc window -f {up,down,left,right}
+	bspc node -f {up,down,left,right}
 
+#===Various===
+# terminal emulator
+super + Return
+	urxvt -name floating -geometry 64x16 -fade 40
+
+super + shift + Return
+	urxvt -geometry 64x16 -fade 40
+
+# program launcher
+super + @space
+	rofi -show drun -theme sidetab -show-icons
+
+
+# Clipboard manager
+super + c
+	copyq show
 
 
 #
@@ -36,7 +41,7 @@ super + alt + Escape
 
 # close and kill
 super + shift + q
-	bspc node -{c,k}
+	bspc node -{c}
 
 # alternate between the tiled and monocle layout
 super + m

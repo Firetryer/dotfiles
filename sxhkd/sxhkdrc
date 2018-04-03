@@ -16,18 +16,18 @@ super + {Up,Down,Left,Right}
 # ===CLI Launchers===
 # ===terminal emulator
 super + Return
-	urxvt -name abc -geometry 64x16 -fade 40
+	urxvt -name abc -geometry 80x24 -fade 15
 
 super + shift + Return
-	urxvt -geometry 64x16 -fade 40
+	urxvt -geometry 80x24 -fade 15
 
 # ===TodoList Launcher
 super + a
-	urxvt -name abc  -g 50x40 -e vim +star ~/.todolist
+	urxvt -name abc  -g 60x45 -e vim +star ~/.todolist
 
 # ===Python Shell Launcher (Used as a calculator)
 super + c
-	urxvt -name abc -g 50x40 -e python
+	urxvt -name abc -g 60x45 -e python
 
 # ===ROFI Program Launcher
 super + @space

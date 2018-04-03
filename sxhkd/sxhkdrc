@@ -13,23 +13,41 @@ alt + {_,shift +} Tab
 super + {Up,Down,Left,Right}
 	bspc node -f {up,down,left,right}
 
-#===Various===
-# terminal emulator
+# ===CLI Launchers===
+# ===terminal emulator
 super + Return
-	urxvt -name floating -geometry 64x16 -fade 40
+	urxvt -name abc -geometry 64x16 -fade 40
 
 super + shift + Return
 	urxvt -geometry 64x16 -fade 40
 
-# program launcher
+# ===TodoList Launcher
+super + a
+	urxvt -name abc  -g 50x40 -e vim +star ~/todolist
+
+# ===Python Shell Launcher (Used as a calculator)
+super + c
+	urxvt -name abc -g 50x40 -e python
+
+# ===ROFI Program Launcher
 super + @space
 	rofi -show drun -theme sidetab -show-icons
 
+super + w
+	rofi -show window -theme sidetab -show-icons true
 
-# Clipboard manager
+# ===Clipboard manager
 super + c
 	copyq show
 
+# ===SCREENSHOT
+# =Select Screen Space
+super + Print
+	import "$HOME"/Pictures/Screenshots/"$(date +%F_%T).png"
+
+# =Whole Screen
+Print
+	import -window root "$HOME"/Pictures/Screenshots/"$(date +%F_%T).png"
 
 #
 # bspwm hotkeys

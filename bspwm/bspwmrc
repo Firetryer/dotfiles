@@ -2,10 +2,10 @@
 
 sxhkd &
 
-bspc monitor LVDS-1 -d 01 02 03 04
+bspc monitor LVDS-1 -d 1 2 3 4
 bspc monitor VGA-1  -d M2
 
-bspc config border_width         1
+bspc config border_width         2
 bspc config window_gap           0
 
 
@@ -15,9 +15,25 @@ bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 bspc config click_to_focus        true
 
-bspc rule -a URxvt:floating 	state=floating
-bspc rule -a Kupfer.py 		focus=on
-bspc rule -a copyq		state=floating
+
+bspc rule -a URxvt:abc	 		state = floating
+bspc rule -a copyq			state = floating
+bspc rule -a vlc			state = floating
+bspc rule -a feh			state = floating
+bspc rule -a Gnome-system-monitor 	state = floating
+bspc rule -a Switchboard		state = floating
+bspc rule -a Transmission-gtk		state = floating
+bspc rule -a Gdebi-gtk			state = floating
+bspc rule -a URxvt			state = tiled
+bspc rule -a URxvt:abc			state = floating
+bspc rule -a discord			state = tiled
+bspc rule -a Pavucontrol		state = floating
+bspc rule -a Wrapper-1.0		state = floating
+
+$HOME/.config/polybar/launch.sh
+xset -dpms
+xset s noblank
+xset s off
 
 xsetroot -cursor_name left_ptr
 copyq &

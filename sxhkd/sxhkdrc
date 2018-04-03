@@ -23,7 +23,7 @@ super + shift + Return
 
 # ===TodoList Launcher
 super + a
-	urxvt -name abc  -g 50x40 -e vim +star ~/todolist
+	urxvt -name abc  -g 50x40 -e vim +star ~/.todolist
 
 # ===Python Shell Launcher (Used as a calculator)
 super + c

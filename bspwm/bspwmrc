@@ -2,7 +2,7 @@
 
 sxhkd &
 
-bspc monitor LVDS-1 -d 1 2 3 4
+bspc monitor -d 1 2 3 4
 bspc monitor VGA-1  -d M2
 
 bspc config border_width         2
@@ -35,6 +35,8 @@ xset -dpms
 xset s noblank
 xset s off
 
+xinput --set-prop "USB Optical Mouse" "libinput Accel Speed" 0
 xsetroot -cursor_name left_ptr
+feh --bg-scale $HOME/Pictures/Wallpapers/the_tower.jpg
 copyq &
 

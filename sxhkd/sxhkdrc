@@ -16,10 +16,10 @@ super + {Up,Down,Left,Right}
 # ===CLI Launchers===
 # ===terminal emulator
 super + Return
-	urxvt -name abc -geometry 80x24 -fade 15
+	urxvt -name abc -geometry 80x24
 
-super + shift + Return
-	urxvt -geometry 80x24 -fade 15
+super + ctrl + Return
+	urxvt -geometry 80x24
 
 # ===TodoList Launcher
 super + a
@@ -39,7 +39,8 @@ super + w
 # ===Clipboard manager
 super + c
 	copyq show
-
+super + alt + l
+	$HOME/.scripts/lockscript.sh
 # ===SCREENSHOT
 # =Select Screen Space
 super + Print

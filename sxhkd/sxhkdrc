@@ -23,8 +23,8 @@ super + ctrl + Return
 
 # ===TodoList Launcher
 super + a
-	urxvt -name abc  -g 60x45 -e vim +star ~/.todolist
-
+#	urxvt -name abc  -g 60x45 -e vim +star ~/.todolist
+	$HOME/.src/medley-latest.AppImage
 # ===Python Shell Launcher (Used as a calculator)
 super + c
 	urxvt -name abc -g 60x45 -e python
@@ -44,11 +44,11 @@ super + alt + l
 # ===SCREENSHOT
 # =Select Screen Space
 super + Print
-	import "$HOME"/Pictures/Screenshots/"$(date +%F_%T).png"
+	import "$HOME"/Pictures/Screenshots/"$(date +%F_%T).png" && notify-send "Image Taken as $(date +%F_%T)"
 
 # =Whole Screen
 Print
-	import -window root "$HOME"/Pictures/Screenshots/"$(date +%F_%T).png"
+	import -window root "$HOME"/Pictures/Screenshots/"$(date +%F_%T).png" && notify-send "Image Taken as $(date +%F_%T)"
 
 #
 # bspwm hotkeys
@@ -72,7 +72,15 @@ super + y
 
 # swap the current node and the biggest node
 super + g
-	bspc node -s biggest
+	bspc node -s biggest.local
+#
+# Custom
+#
+
+# resize gaps
+
+super + ctrl + {Left, Right}
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 5 ))
 
 #
 # state/flags
@@ -98,9 +106,6 @@ super + {_,shift + }{h,j,k,l}
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}

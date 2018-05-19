@@ -4,15 +4,24 @@ sxhkd &
 
 $HOME/.config/polybar/launch.sh &
 
-bspc monitor -d 1 2 3 4
+# source the colors.
+. "${HOME}/.cache/wal/colors.sh"
+
+# Set the border colors.
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color15"
+bspc config presel_border_color "$color1"
+
+bspc monitor -d • • • • •
 bspc monitor VGA-1  -d M2
 
-bspc config border_width         1
-bspc config window_gap           0
-#bspc config top_padding		 20
-bspc config left_padding	 19
-bspc config bottom_padding	 19
-bspc config right_padding	 19
+bspc config border_width         2
+bspc config window_gap           6
+bspc config top_padding		 6
+bspc config left_padding	 6
+bspc config bottom_padding	 6
+bspc config right_padding	 6
 
 
 bspc config split_ratio          0.50
@@ -22,17 +31,14 @@ bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 bspc config click_to_focus        true
 
-
+bspc rule -a URxvt			state = tiled
 bspc rule -a URxvt:abc	 		state = floating
-bspc rule -a copyq			state = floating
 bspc rule -a vlc			state = floating
 bspc rule -a feh			state = floating
 bspc rule -a Gnome-system-monitor 	state = floating
 bspc rule -a Switchboard		state = floating
 bspc rule -a Transmission-gtk		state = floating
 bspc rule -a Gdebi-gtk			state = floating
-bspc rule -a URxvt			state = tiled
-bspc rule -a URxvt:abc			state = floating
 bspc rule -a discord			state = tiled
 bspc rule -a Pavucontrol		state = floating
 bspc rule -a Wrapper-1.0		state = floating
@@ -41,7 +47,9 @@ xset -dpms
 xset s noblank
 xset s off
 
-xinput --set-prop 8 "libinput Accel Speed" -0.6
+stty -ixon
+xinput --set-prop 11 "libinput Accel Speed" -0.6
 xset m 1 1
 xsetroot -cursor_name left_ptr
-#compton -cb
+compton -cb
+wal -R
